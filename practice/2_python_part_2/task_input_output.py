@@ -15,9 +15,29 @@ Examples:
     No numbers entered
 
 """
-
+import typing
 
 def read_numbers(n: int) -> str:
-    ...
+    total = 0
+    count = 0
+
+    for i in range(n):
+        try:
+            i = input("Enter a number: ")
+            number = float(i)
+            total += number
+            count += 1
+        except ValueError:
+            pass
+
+    if count > 0:
+        average = total / count
+        return f"Avg: {average:.2f}"
+    else:
+        return "No numbers entered"
+
+n = int(input("Enter the number of inputs: "))
+result = read_numbers(n)
+print(result)
 
 

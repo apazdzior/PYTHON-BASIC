@@ -24,7 +24,7 @@ def get_min_max(filename: str) -> Tuple[int, int]:
     
     with open(filename) as opened_file:
         for line in opened_file:
-            list.append(int(line.strip()))
+            list.append(int(line))
     tuple = (min(list), max(list))
     return tuple
 

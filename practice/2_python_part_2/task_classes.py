@@ -29,16 +29,34 @@ import datetime
 
 
 class Teacher:
-    ...
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
 
+    def create_homework(self, text, days_to_complete):
+        return Homework(text, days_to_complete)
 
 class Student:
-    ...
-
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+    
+    def do_homework(self, homework):
+        if homework.is_active():
+            return homework
+        else:
+            print("You are late")
+            return None
 
 class Homework:
-    ...
-
+    def __init__(self, text, days_to_complete):
+        self.text = text
+        self.deadline = datetime.timedelta(days=days_to_complete)
+        self.created = datetime.datetime.now()
+    
+    def is_active(self):
+        current_time = datetime.datetime.now()
+        return current_time <= self.created + self.deadline
 
 if __name__ == '__main__':
     teacher = Teacher('Dmitry', 'Orlyakov')
