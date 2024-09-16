@@ -22,3 +22,16 @@ def generate_words(n=20):
         words.append(word)
 
     return words
+
+def write_to_file(file_name, data, encoding, separator):
+    with open(file_name, 'w', encoding=encoding) as file:
+        file.write(separator.join(data))
+
+words = generate_words(20)
+
+write_to_file('file1.txt', words, 'utf-8', '\n')
+
+reversed_words = list(reversed(words))
+write_to_file('file2.txt', reversed_words, 'cp1252', ',')
+
+print("Files 'file1.txt' and 'file2.txt' have been created.")

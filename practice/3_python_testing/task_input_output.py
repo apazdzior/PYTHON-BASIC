@@ -36,8 +36,5 @@ def read_numbers(n: int) -> str:
     else:
         return "No numbers entered"
 
-n = int(input("Enter the number of inputs: "))
-result = read_numbers(n)
-print(result)
 
 
